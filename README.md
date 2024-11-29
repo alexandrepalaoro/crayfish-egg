@@ -1,5 +1,5 @@
 # The evolution of burrowing, parental care, and egg investment in freshwater crayfish:
-Authors: Zackary A. Graham, Zachary Loughman, Alexandre V. Palaoro 
+Authors: Zackary A. Graham, Zachary Loughman, Alexandre V. Palaoro <br>
 Contact about code and analyses: alexandre.palaoro@gmail.com
 ---
 
