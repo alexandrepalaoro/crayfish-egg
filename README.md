@@ -19,14 +19,14 @@ The code was made to be ran in a cluster and then parsed in a standard computer.
 The only exception is the "pgls" folder that contains non-bayesian analyses (for the most part). These can be ran in any computer without necessarily requiring the mcmc chains. However, one of the the ancestral reconstructions was made with bayesian approximation. For those, we provide the RDS files of the chains as well.
 
 If you want to run the chains yourself, use any of the "rjmcmc_XX.R" code. That code will run all chains for yourself. The nomenclature is as follows: 
-11 = a global model where there no shifts in both intercept and slope. 
-N1 = a model where lineages can shift their intercept optimum, but not slope.
-NN = a model where lineages can shift both their intercept and slope. 
-These three models allow the lineages to vary their optimum, and we test how many shifts there were (and how significant they were).
+11 = a global model where there no shifts in both intercept and slope. <br>
+N1 = a model where lineages can shift their intercept optimum, but not slope. <br>
+NN = a model where lineages can shift both their intercept and slope. <br>
+These three models allow the lineages to vary their optimum, and we test how many shifts there were (and how significant they were). <br>
 
-C2 = a model where we use an ancestral reconstruction of their burrowing status to show where shifts can occur. In this model, lineages vary in their intercept, but not slope. Here, their burrowing status follows a combination of morphology and traditional classification.
-F2 = a model where we use an ancestral reconstruction of their burrowing status to show where shifts can occur. In this model, lineages vary in their intercept, but not slope. Here, their burrowing status follows a morphology classification.
-T2 = a model where we use an ancestral reconstruction of their burrowing status to show where shifts can occur. In this model, lineages vary in their intercept, but not slope. Here, their burrowing status follows the traditional classification.
+C2 = a model where we use an ancestral reconstruction of their burrowing status to show where shifts can occur. In this model, lineages vary in their intercept, but not slope. Here, their burrowing status follows a combination of morphology and traditional classification. <br>
+F2 = a model where we use an ancestral reconstruction of their burrowing status to show where shifts can occur. In this model, lineages vary in their intercept, but not slope. Here, their burrowing status follows a morphology classification. <br>
+T2 = a model where we use an ancestral reconstruction of their burrowing status to show where shifts can occur. In this model, lineages vary in their intercept, but not slope. Here, their burrowing status follows the traditional classification. <br>
 
 If you want to run the stepping stone of the chains to calculate the marginal likelihood, please run the "stepstone-XX.R" code. It follows the same nomenclature as the previous files.
 
@@ -118,9 +118,9 @@ Any opinions, findings, and conclusions or recommendations expressed in this mat
 ## Sharing/access Information
 
 The file structure and files can be seen and downloaded from:
-DRYAD: 10.5061/dryad.9kd51c5qt
-ZENODO: https://doi.org/10.5281/zenodo.7915922
-GITHUB: https://github.com/alexandrepalaoro/crayfish-egg
+DRYAD: 10.5061/dryad.9kd51c5qt <br>
+ZENODO: https://doi.org/10.5281/zenodo.7915922 <br>
+GITHUB: https://github.com/alexandrepalaoro/crayfish-egg <br>
 
 The phylogenetic tree was taken from another paper:
 Stern, D. B., J. Breinholt, C. Pedraza-Lara, M. López-Mejía, C. L. Owen, H. Bracken-Grissom, J. W. Fetzner, and K. A. Crandall. 2017. Phylogenetic evidence from freshwater crayfishes that cave adaptation is not an evolutionary dead-end. Evolution (N. Y). 71:2522–2532.
