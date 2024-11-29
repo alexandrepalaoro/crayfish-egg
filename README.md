@@ -18,7 +18,7 @@ The code was made to be ran in a cluster and then parsed in a standard computer.
 
 The only exception is the "pgls" folder that contains non-bayesian analyses (for the most part). These can be ran in any computer without necessarily requiring the mcmc chains. However, one of the the ancestral reconstructions was made with bayesian approximation. For those, we provide the RDS files of the chains as well.
 
-If you want to run the chains yourself, use any of the "rjmcmc_XX.R" code. That code will run all chains for yourself. The nomenclature is as follows: 
+If you want to run the chains yourself, use any of the "rjmcmc_XX.R" code. That code will run all chains for yourself. The nomenclature is as follows: <br> 
 11 = a global model where there no shifts in both intercept and slope. <br>
 N1 = a model where lineages can shift their intercept optimum, but not slope. <br>
 NN = a model where lineages can shift both their intercept and slope. <br>
