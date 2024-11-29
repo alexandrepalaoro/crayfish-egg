@@ -14,22 +14,72 @@ The third type of analyses relates to a phylogeneletic linear regression and anc
 
 ##### Code:
 
-The code was made to be ran in a cluster and then parsed in a standard computer. All code that starts with "eggsize_", "stepstone_", or "rjmcmc_" were used in the Palmetto cluster (Clemson University) to run the mcmc chains or to perform the stepping stone procedure to calculate the marginal likelihood of the models. Here in GitHub, we are providing all files that are smaller than 25 mb generated in the cluster in the folder "results_mcmc". The files that we were unable to upload were mostly the stepping stone files ("ss_"). Thus, you can run the parsing code to load those objects and chains and perform any sort of data treatment required - the only problem will be calculating the marginal likelihood. But these files can be found in the Zenodo or the Dryad link (I'll post them here afterwards). 
+The code was made to be ran in a cluster and then parsed in a standard computer. All code that starts with "eggsize_", "stepstone_", or "rjmcmc_" were used in the Palmetto cluster (Clemson University) to run the mcmc chains or to perform the stepping stone procedure to calculate the marginal likelihood of the models. We are providing all files generated in the cluster in the folder "results_mcmc". Thus, you can run the parsing code to load those objects and chains and perform any sort of data treatment required. 
 
 The only exception is the "pgls" folder that contains non-bayesian analyses (for the most part). These can be ran in any computer without necessarily requiring the mcmc chains. However, one of the the ancestral reconstructions was made with bayesian approximation. For those, we provide the RDS files of the chains as well.
 
+If you want to run the chains yourself, use any of the "rjmcmc_XX.R" code. That code will run all chains for yourself. The nomenclature is as follows: 
+11 = a global model where there no shifts in both intercept and slope. 
+N1 = a model where lineages can shift their intercept optimum, but not slope.
+NN = a model where lineages can shift both their intercept and slope. 
+These three models allow the lineages to vary their optimum, and we test how many shifts there were (and how significant they were).
+
+C2 = a model where we use an ancestral reconstruction of their burrowing status to show where shifts can occur. In this model, lineages vary in their intercept, but not slope. Here, their burrowing status follows a combination of morphology and traditional classification.
+F2 = a model where we use an ancestral reconstruction of their burrowing status to show where shifts can occur. In this model, lineages vary in their intercept, but not slope. Here, their burrowing status follows a morphology classification.
+T2 = a model where we use an ancestral reconstruction of their burrowing status to show where shifts can occur. In this model, lineages vary in their intercept, but not slope. Here, their burrowing status follows the traditional classification.
+
+If you want to run the stepping stone of the chains to calculate the marginal likelihood, please run the "stepstone-XX.R" code. It follows the same nomenclature as the previous files.
+
+Lastly, if you just want to look at the results, run the "parsing_code.R". Just ensure to follow the same file structure as here.
+
+For the PGLS analysis, if you want to run the PGLS, just use the "pgls-run.R" code. It will do everything related to that analysis. The "tree_vis_file.R" is simply a code to build the phylogeny shown in Figure 2.
+
 ##### Dataset:
 
-Dataset contains the average values for each species of crayfish we found information for. All variables are contained in the same file. These data were used to run all analyses contained in the manuscript.
+We are uploading two data sheets. One contains the raw data of everything we collected in the literature and one - called "Raw_Data_Supplemental_file.xlsx". The second data sheet is embedded in each "data" folder, named "LH_data_reorder.csv".
 
-Body length, egg diameter, and number of eggs were all collected from the literature. If we found more than one egg number, we averaged both observations. If we only had a range of values, we also averaged them. The list of papers we used to collect the data are in the excel spreadsheet: "Raw_Data_Supplemental_file.xlsx" 
+The raw data contains every piece of information we found for species, with the citation to back it up. We are adding the metadata for this file below.
+
+The second data sheet, used for data analysis, contains the average values for each species of crayfish we found information for. All variables are contained in the same file. These data were used to run all analyses contained in the manuscript. Body length, egg diameter, and number of eggs were all collected from the literature. If we found more than one egg number, we averaged both observations. If we only had a range of values, we also averaged them.
+"NA" cells represent species we found no information, while "null" cells represent species that have no important notes to use. 
 
 The phylogenetic tree was taken from: 
 Stern, D. B., J. Breinholt, C. Pedraza-Lara, M. López-Mejía, C. L. Owen, H. Bracken-Grissom, J. W. Fetzner, and K. A. Crandall. 2017. Phylogenetic evidence from freshwater crayfishes that cave adaptation is not an evolutionary dead-end. Evolution (N. Y). 71:2522–2532.
 
+
+METADATA OF Raw_Data_Supplemental_File.csv
+
+In the columns we have the variables, in rows we have the individual sources that we gathered relevant life history data from. Empty cells (NA) denote species where we did not find the information based on each source, as some sources only report partial life history data we were interested in.  
+
+COLUMN A: species - the crayfish species <br>
+COLUMN B: family - the family the crayfish belongs to. based on the phylogeny <br>
+COLUMN C: n - the sample size of the crayfish life history measurements that were measured. Some are NA as exact sample size was not reported. <br>
+COLUMN D: body.size.average - the average value of body length obtained from the literature. Can be two types of lengths: carapace length or post-orbital carapace length. Unit: cm <br>
+COLUMN E: body.size.minimum - the minimum value of body length obtained from the literature. Can be two types of lengths: carapace length or post-orbital carapace length. Unit: cm <br>
+COLUMN F: body.size.maximum - the maximum value of body length obtained from the literature. Can be two types of lengths: carapace length or post-orbital carapace length. Unit: cm <br>
+COLUMN G: body.size.metric - type of body length measurement. Either carapace length (cl) or post-orbital carapace length (ocl). <br>
+COLUMN H: cltuch.average - the average value of clutch size obtained from the literature.  <br>
+COLUMN I: clutch.minimum - the minimum value of clutch size obtained from the literature. COLUMN J: clutch.maximum - the maximum value of clutch size obtained from the literature. <br>
+COLUMN K: egg.size.average.mm - the average value of egg size obtained from the literature. Unit: mm
+COLUMN L: egg.size.minimum.mm - the minimum value of egg size obtained from the literature. Unit :mm <br>
+COLUMN M: egg.size.maximum.mm - the maximum value of egg size obtained from the literature. Unit: mm <br>
+COLUMN N: body.size.average.from.literature - whether or not our final body size measurement came directly from the literature sources (1) or from taking the mid-point of the minimum and maximum values reported from the literature (0). <br>
+COLUMN O: body.size.average.from.min.max - whether or not our final body size measurement came directly from the mid-point of the minimum and maximum values reported from the literature (1) or directly from a literature sources (0). <br> 
+COLUMN P: clutch.average.from.literature - whether or not our final clutch size measurement came directly from the literature sources (1) or from taking the mid-point of the minimum and maximum values reported from the literature (0). <br>
+COLUMN Q: clutch.average.from.min.max - whether or not our final clutch size measurement came directly from the mid-point of the minimum and maximum values reported from the literature (1) or directly from a literature sources (0). <br> 
+COLUMN R: egg.size.average.from.literature - whether or not our final egg size measurement came directly from the literature sources (1) or from taking the mid-point of the minimum and maximum values reported from the literature (0). <br>
+COLUMN S: egg.size.average.from.min.max - whether or not our final egg size measurement came directly from the mid-point of the minimum and maximum values reported from the literature (1) or directly from a literature sources (0). <br>
+COLUMN T: primary.data.citation - the source for which we collected the information in columns C-M. <br>
+COLUMN U: primary.data.title - the title of the source for which we collected the information in columns C-M. <br>
+COLUMN V: source - the source for which we found the citation and life history information, whether it be from a specific paper, a previous life history database (i.e., bloomer_database, moore_database; detailed in paper) or a google scholar search. <br>
+COLUMN W: body.size.citation - If data on a species body size was collected from a separate source from the primary.data.citation source (which may have had life history infomraiton but not body size information), we report it here. <br>
+COLUMN X: body.size.title - The full title of the paper in column W (if mentioned). <br>
+COLUMN Y: webplotdigitizer - whether or not body size/egg size/egg number data was collected from a figure using webplotdigitizter; 1 = yes, 0 = no. <br>
+
+
 METADATA OF LH_data_reorder.csv
 
-In the columns we have the variables, in rows we have the individuals. We obtained mean values by averaging the individuals of the species.
+In the columns we have the variables, in rows we have the individuals. We obtained mean values by averaging the individuals of the species. Empty cells (NA) denote species where we did not find the information (mainly for the egg diameter). 
 
 COLUMN A: species - the crayfish species <br>
 COLUMN B: genus - the genus the specific species belongs to. based on the phylogeny <br>
@@ -38,7 +88,7 @@ COLUMN D: body.size.avg - the average value of body length obtained from the lit
 COLUMN E: bs.metric - type of body length measurement. Either carapace length (cl) or post-orbital carapace length (ocl) <br>
 COLUMN F: fecundity.avg - mean number of eggs attached to the abdomen of a female crayfish <br>
 COLUMN G: egg.diam.avg - mean diameter of the eggs attached to the abdomen of a female crayfish. Unit: mm <br>
-COLUMN H: notes - any notes about the body size, fecundity or egg diameter data collected from the literature <br>
+COLUMN H: notes - any notes about the body size, fecundity or egg diameter data collected from the literature. If the cell contains "null", it means that are no notes for this species <br>
 COLUMN I: burrow.lough - Morphological classification of burrowing status. Levels: Burrower, Non-burrower <br>
 COLUMN J: traditional.burrowing.classification - Traditional classification of burrowing status. Levels: Primary burrower, Secondary burrower, Tertiary burrower <br>
 COLUMN K: combined.burrowing.classification - Classification that mixes the morphological and traditional classifications. Levels: Semi-terrestrial burrower, Open-water burrower <br>
@@ -68,7 +118,9 @@ Any opinions, findings, and conclusions or recommendations expressed in this mat
 ## Sharing/access Information
 
 The file structure and files can be seen and downloaded from:
-
+DRYAD: 10.5061/dryad.9kd51c5qt
+ZENODO: https://doi.org/10.5281/zenodo.7915922
+GITHUB: https://github.com/alexandrepalaoro/crayfish-egg
 
 The phylogenetic tree was taken from another paper:
 Stern, D. B., J. Breinholt, C. Pedraza-Lara, M. López-Mejía, C. L. Owen, H. Bracken-Grissom, J. W. Fetzner, and K. A. Crandall. 2017. Phylogenetic evidence from freshwater crayfishes that cave adaptation is not an evolutionary dead-end. Evolution (N. Y). 71:2522–2532.
