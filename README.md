@@ -19,14 +19,14 @@ The code was made to be ran in a cluster and then parsed in a standard computer.
 The only exception is the "pgls" folder that contains non-bayesian analyses (for the most part). These can be ran in any computer without necessarily requiring the mcmc chains. However, one of the the ancestral reconstructions was made with bayesian approximation. For those, we provide the RDS files of the chains as well.
 
 If you want to run the chains yourself, use any of the "rjmcmc_XX.R" code. That code will run all chains for yourself. The nomenclature is as follows: <br> 
-11 = a global model where there no shifts in both intercept and slope. <br>
-N1 = a model where lineages can shift their intercept optimum, but not slope. <br>
-NN = a model where lineages can shift both their intercept and slope. <br>
+<strong>11</strong> = a global model where there no shifts in both intercept and slope. <br>
+<strong>N1</strong> = a model where lineages can shift their intercept optimum, but not slope. <br>
+<strong>NN</strong> = a model where lineages can shift both their intercept and slope. <br>
 These three models allow the lineages to vary their optimum, and we test how many shifts there were (and how significant they were). <br>
 
-C2 = a model where we use an ancestral reconstruction of their burrowing status to show where shifts can occur. In this model, lineages vary in their intercept, but not slope. Here, their burrowing status follows a combination of morphology and traditional classification. <br>
-F2 = a model where we use an ancestral reconstruction of their burrowing status to show where shifts can occur. In this model, lineages vary in their intercept, but not slope. Here, their burrowing status follows a morphology classification. <br>
-T2 = a model where we use an ancestral reconstruction of their burrowing status to show where shifts can occur. In this model, lineages vary in their intercept, but not slope. Here, their burrowing status follows the traditional classification. <br>
+<strong>C2</strong> = a model where we use an ancestral reconstruction of their burrowing status to show where shifts can occur. In this model, lineages vary in their intercept, but not slope. Here, their burrowing status follows a combination of morphology and traditional classification. <br>
+<strong>F2</strong> = a model where we use an ancestral reconstruction of their burrowing status to show where shifts can occur. In this model, lineages vary in their intercept, but not slope. Here, their burrowing status follows a morphology classification. <br>
+<strong>T2</strong> = a model where we use an ancestral reconstruction of their burrowing status to show where shifts can occur. In this model, lineages vary in their intercept, but not slope. Here, their burrowing status follows the traditional classification. <br>
 
 If you want to run the stepping stone of the chains to calculate the marginal likelihood, please run the "stepstone-XX.R" code. It follows the same nomenclature as the previous files.
 
